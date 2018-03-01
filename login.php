@@ -21,9 +21,9 @@ try {
      */
     $data = file_get_contents('php://input');
     $_POST = json_decode($data, true);
-    $userResult = $pdo->query("SELECT * FROM testapp.user WHERE phonenumber='" . $_POST["User.PHONENUMBER"] . "'" );
+    $userResult = $pdo->query("SELECT * FROM testapp.user WHERE phonenumber='" . $_POST["phonenumber"] . "'" );
     $user = $userResult->fetch();
-    if ($user && $user["password"] == $_POST["User.PASSWORD"]) {
+    if ($user && $user["password"] == $_POST["password"]) {
         $_SESSION["User"] = $user["phonenumber"];
         echo "OK";
     }
