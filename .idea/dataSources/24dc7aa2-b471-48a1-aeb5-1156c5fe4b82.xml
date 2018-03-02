@@ -909,44 +909,132 @@
       <Charset>utf8mb4</Charset>
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
-    <table id="229" parent="6" name="user">
+    <table id="229" parent="6" name="font">
       <Engine>InnoDB</Engine>
     </table>
-    <column id="230" parent="229" name="id">
+    <table id="230" parent="6" name="picture">
+      <Engine>InnoDB</Engine>
+    </table>
+    <table id="231" parent="6" name="user">
+      <Engine>InnoDB</Engine>
+    </table>
+    <column id="232" parent="229" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="231" parent="229" name="phonenumber">
+    <column id="233" parent="229" name="name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="229" name="username">
+    <column id="234" parent="229" name="userid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="235" parent="229" name="font_name_uindex">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="236" parent="229" name="font_user_id_fk">
+      <ColNames>userid</ColNames>
+    </index>
+    <key id="237" parent="229" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="238" parent="229" name="font_name_uindex">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>font_name_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="239" parent="229" name="font_user_id_fk">
+      <ColNames>userid</ColNames>
+      <RefSchemaName>testapp</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="240" parent="230" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="241" parent="230" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="242" parent="230" name="fontid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="243" parent="230" name="picture_name_uindex">
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="244" parent="230" name="picture_font_id_fk">
+      <ColNames>fontid</ColNames>
+    </index>
+    <key id="245" parent="230" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="246" parent="230" name="picture_name_uindex">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>picture_name_uindex</UnderlyingIndexName>
+    </key>
+    <foreign-key id="247" parent="230" name="picture_font_id_fk">
+      <ColNames>fontid</ColNames>
+      <RefSchemaName>testapp</RefSchemaName>
+      <RefTableName>font</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="248" parent="231" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="249" parent="231" name="phonenumber">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="250" parent="231" name="username">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="229" name="password">
+    <column id="251" parent="231" name="password">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="234" parent="229" name="user_phonenumber_uindex">
+    <index id="252" parent="231" name="user_phonenumber_uindex">
       <ColNames>phonenumber</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="235" parent="229" name="PRIMARY">
+    <key id="253" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="236" parent="229" name="user_phonenumber_uindex">
+    <key id="254" parent="231" name="user_phonenumber_uindex">
       <ColNames>phonenumber</ColNames>
       <UnderlyingIndexName>user_phonenumber_uindex</UnderlyingIndexName>
     </key>
