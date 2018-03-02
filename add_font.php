@@ -30,16 +30,21 @@ try {
     if (!$_SESSION['User']) {
         echo "Wrong";
     } else {
-        $insertUser = $pdo->prepare("INSERT INTO testapp.font (name, userid) VALUES 
-                                                                (:name, :userid)");
-        $insertUser->bindValue(':name', $_POST["name"]);
-        $insertUser->bindValue(':userid', $_SESSION["User"]);
-        $insertUser->execute();
-
-
         //创建字体目录
-        $dir = iconv("UTF-8", "GBK", "data/"+$_SESSION["User"]+"/"+$_POST["name"]);
-        echo "OK";
+        $dir = iconv("UTF-8", "GBK", "./data/".$_SESSION["User"]."/".$_POST["name"]);
+        if (!file_exists($dir)){
+            mkdir ($dir,0777,true);
+            $insertUser = $pdo->prepare("INSERT INTO testapp.font (name, userid) VALUES 
+                                                                (:name, :userid)");
+            $insertUser->bindValue(':name', $_POST["name"]);
+            $insertUser->bindValue(':userid', $_SESSION["User"]);
+            $insertUser->execute();
+            echo 'OK';
+        } else {
+            echo 'Wrong';
+        }
+
+
     }
 
 } catch (PDOException $e) {

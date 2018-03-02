@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-<<<<<<< HEAD
-    <data-source name="Mysql@111.230.231.55" uuid="24dc7aa2-b471-48a1-aeb5-1156c5fe4b82">
-=======
-    <data-source name="testapp@111.230.231.55" uuid="0939ed6e-1c21-4852-8f21-f0be72d934c3">
->>>>>>> 7c73c0f4bf855cc7acecca7742e635230d9afac3
+    <data-source name="Mysql@111.230.231.55" uuid="0939ed6e-1c21-4852-8f21-f0be72d934c3">
       <database-info product="MySQL" version="5.7.20-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.45 ( Revision: 9131eefa398531c7dc98776e8a3fe839e544c5b2 )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
       <user-name>root</user-name>
-      <introspection-schemas>*:testapp</introspection-schemas>
+      <introspection-schemas>*:mysql,testapp</introspection-schemas>
     </data-source>
   </component>
 </project>

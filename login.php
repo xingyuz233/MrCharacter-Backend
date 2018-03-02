@@ -24,7 +24,7 @@ try {
     $userResult = $pdo->query("SELECT * FROM testapp.user WHERE phonenumber='" . $_POST["phonenumber"] . "'" );
     $user = $userResult->fetch();
     if ($user && $user["password"] == $_POST["password"]) {
-        $_SESSION["User"] = $user["phonenumber"];
+        $_SESSION["User"] = $user["id"];
         echo "OK";
     }
     else {
