@@ -23,19 +23,19 @@ try {
     $_POST = json_decode($data, true);
 
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $userResult = $pdo->query("SELECT * FROM testapp.user WHERE phonenumber='" . $_POST["User.PHONENUMBER"] . "'");
+    $userResult = $pdo->query("SELECT * FROM testapp.user WHERE phonenumber='" . $_POST["phonenumber"] . "'");
     $user = $userResult->fetch();
     if ($user) {
-        echo false;
+        echo "Wrong";
     } else {
         $insertUser = $pdo->prepare("INSERT INTO testapp.user (phonenumber, username, password) VALUES 
                                                                 (:phonenumber, :username, :password)");
-        $insertUser->bindValue(':phonenumber', $_POST["User.PHONENUMBER"]);
-        $insertUser->bindValue(':username', $_POST["User.USERNAME"]);
-        $insertUser->bindValue(':password', $_POST["User.PASSWORD"]);
+        $insertUser->bindValue(':phonenumber', $_POST["phonenumber"]);
+        $insertUser->bindValue(':username', $_POST["username"]);
+        $insertUser->bindValue(':password', $_POST["password"]);
         $insertUser->execute();
-        $_SESSION["User"] = $_POST["User.PHONENUMBER"];
-        echo true;
+        $_SESSION["User"] = $_POST["phonenumber"];
+        echo "OK";
     }
 
 } catch (PDOException $e) {
