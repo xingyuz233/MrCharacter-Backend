@@ -25,7 +25,7 @@ try {
     } else {
         $fontArrayResult = $pdo->query("SELECT * FROM testapp.font WHERE userid=".$_SESSION["User"]);
         $fontArray = $fontArrayResult->fetchAll();
-        echo array_utf8_encode($fontArray);
+        echo json_encode(array_utf8_encode($fontArray));
     }
 
 } catch (PDOException $e) {
