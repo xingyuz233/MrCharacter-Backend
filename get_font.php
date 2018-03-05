@@ -7,12 +7,12 @@
  */
 
 $username = "root";
-$password = "1997";
+$password = "root";
 
 
 try {
     session_start();
-    $connString = "mysql:host=111.230.231.55;dbname=testapp";
+    $connString = "mysql:host=115.159.185.234;dbname=font";
     $pdo = new PDO($connString, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -23,14 +23,14 @@ try {
     if (!$_SESSION['User']) {
         echo "Wrong";
     } else {
-        $fontArrayResult = $pdo->query("SELECT * FROM testapp.font WHERE userphone=".$_SESSION["User"]);
+        $fontArrayResult = $pdo->query("SELECT * FROM font.font WHERE userphone=" . $_SESSION["User"]);
         $fontArray = $fontArrayResult->fetchAll();
 
         $json_string = request_json($fontArray, $_SESSION["User"]);
         $progress_list = get_progress($json_string);
 
         foreach ($fontArray as $single_font) {
-            $single_font["progress"] = $progress_list[$single_font['id']];
+            $single_font["progress"] = $progress_list[$single_font['name']];
         }
 
 
@@ -41,17 +41,19 @@ try {
     echo $e->getMessage();
 }
 
-function request_json($fontArray, $user_id) {
+function request_json($fontArray, $user_id)
+{
 
     $fontList = array();
     foreach ($fontArray as $single_font) {
-        array_push($fontList, $single_font["id"]);
+        array_push($fontList, $single_font["name"]);
     }
 
-    return json_encode(array('cmd'=>'progress', 'user_id'=>$user_id, 'font_id'=>$fontList));
+    return json_encode(array('cmd' => 'progress', 'user_id' => $user_id, 'font_id' => $fontList));
 }
 
-function get_progress($json_string) {
+function get_progress($json_string)
+{
     $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
     socket_connect($socket, "localhost", 9999);
 

@@ -7,12 +7,12 @@
  */
 
 $username = "root";
-$password = "1997";
+$password = "root";
 
 
 try {
     session_start();
-    $connString = "mysql:host=111.230.231.55;dbname=testapp";
+    $connString = "mysql:host=115.159.185.234;dbname=font";
     $pdo = new PDO($connString, $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -34,7 +34,7 @@ try {
         $dir = iconv("UTF-8", "GBK", "./data/".$_SESSION["User"]."/".$_POST["name"]);
         if (!file_exists($dir)){
             mkdir ($dir,0777,true);
-            $insertUser = $pdo->prepare("INSERT INTO testapp.font (name, userid) VALUES 
+            $insertUser = $pdo->prepare("INSERT INTO font.font (name, userphone) VALUES 
                                                                 (:name, :userid)");
             $insertUser->bindValue(':name', $_POST["name"]);
             $insertUser->bindValue(':userid', $_SESSION["User"]);

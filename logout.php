@@ -8,14 +8,10 @@
 
 
 $username = "root";
-$password = "1997";
+$password = "root";
 
 try {
     session_start();
-    $connString = "mysql:host=111.230.231.55;dbname=testapp";
-    $pdo = new PDO($connString, $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     /**
      * logout
      */
