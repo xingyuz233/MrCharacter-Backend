@@ -18,6 +18,7 @@ foreach ($arr as $index => $name) {
     }
 }
 
+
 // update the database
 $username = "root";
 $password = "root";
@@ -32,11 +33,17 @@ try {
     } else {
         //创建字体目录
         //if (!file_exists($dir)){
-        $insertUser = $pdo->prepare("INSERT INTO font.font (name, userphone) VALUES 
+        if ($_POST["overwrite"] == 0) {
+
+            $insertUser = $pdo->prepare("INSERT INTO font.font (name, userphone) VALUES 
                                                                 (:name, :userphone)");
-        $insertUser->bindValue(':name', $_POST["font_name"]);
-        $insertUser->bindValue(':userphone', $_SESSION["User"]);
-        $insertUser->execute();
+            $insertUser->bindValue(':name', $_POST["font_name"]);
+            $insertUser->bindValue(':userphone', $_SESSION["User"]);
+            $insertUser->execute();
+        } else {
+            $sql = "UPDATE font.font SET finished=0 WHERE name='".$_POST["font_name"]."' and userphone='".$_SESSION["User"]."'";
+            $result = $pdo->exec($sql);
+        }
         //   echo 'OK';
         //} else {
         //    echo 'Wrong';
