@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="db2a277c-95c5-4161-86fc-e7075613f86f" name="Default" comment="Try to resolve merging issues">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0939ed6e-1c21-4852-8f21-f0be72d934c3.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/download_font.php" afterPath="$PROJECT_DIR$/download_font.php" />
-      <change beforePath="$PROJECT_DIR$/get_file.php" afterPath="$PROJECT_DIR$/get_file.php" />
-    </list>
+    <list default="true" id="db2a277c-95c5-4161-86fc-e7075613f86f" name="Default" comment="Try to resolve merging issues" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -91,8 +84,8 @@
       <file leaf-file-name="get_file.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/get_file.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+            <state relative-caret-position="90">
+              <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
               <folding>
                 <marker date="1520337633840" expanded="true" signature="1185:1316" ph="INSERT INTO font.font... " />
               </folding>
@@ -358,7 +351,7 @@
       <workItem from="1520253177428" duration="4451000" />
       <workItem from="1520263273253" duration="6816000" />
       <workItem from="1520325141320" duration="572000" />
-      <workItem from="1520337495370" duration="295000" />
+      <workItem from="1520337495370" duration="471000" />
     </task>
     <task id="LOCAL-00001" summary="Try to resolve merging issues">
       <created>1519974964333</created>
@@ -371,7 +364,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34008000" />
+    <option name="totallyTimeSpent" value="34184000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -815,8 +808,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/get_file.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="19" lean-forward="true" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
+        <state relative-caret-position="90">
+          <caret line="32" column="33" lean-forward="true" selection-start-line="32" selection-start-column="33" selection-end-line="32" selection-end-column="33" />
           <folding>
             <marker date="1520337633840" expanded="true" signature="1185:1316" ph="INSERT INTO font.font... " />
           </folding>
