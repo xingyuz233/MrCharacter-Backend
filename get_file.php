@@ -6,7 +6,7 @@ $arr = json_decode($_POST['pic_name']);
 
 foreach ($arr as $index => $name) {
     if (is_uploaded_file($_FILES['upload' . $index]['tmp_name'])) {
-        $uploads_dir = './' . $_SESSION['User'] . '/' . $_POST['font_name'] . '/';
+        $uploads_dir = './images/' . $_SESSION['User'] . '/' . $_POST['font_name'] . '/';
         if (!file_exists($uploads_dir))
             mkdir($uploads_dir, 0777, true);
 
@@ -17,6 +17,45 @@ foreach ($arr as $index => $name) {
         exit(1);
     }
 }
+
+// update the database
+$username = "root";
+$password = "root";
+
+try {
+    $connString = "mysql:host=115.159.185.234;dbname=font";
+    $pdo = new PDO($connString, $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    /*
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $font = $pdo->query("SELECT * FROM testapp.font WHERE phonenumber='" . $_POST["phonenumber"] . "'");
+    $user = $userResult->fetch();
+    */
+    if (!$_SESSION['User']) {
+        echo "Wrong";
+    } else {
+        //创建字体目录
+        //if (!file_exists($dir)){
+            $insertUser = $pdo->prepare("INSERT INTO font.font (name, userphone) VALUES 
+                                                                (:name, :userphone)");
+            $insertUser->bindValue(':name', $_POST["name"]);
+            $insertUser->bindValue(':userphone', $_SESSION["User"]);
+            $insertUser->execute();
+         //   echo 'OK';
+        //} else {
+        //    echo 'Wrong';
+        //}
+
+
+    }
+
+} catch (PDOException $e) {
+    echo $e->getMessage();
+}
+
+
+
 
 $socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 socket_connect($socket, "localhost", 9999);
