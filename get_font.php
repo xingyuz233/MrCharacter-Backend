@@ -26,13 +26,13 @@ try {
         $fontArrayResult = $pdo->query("SELECT * FROM font.font WHERE userphone=" . $_SESSION["User"]);
         $fontArray = $fontArrayResult->fetchAll();
 
-        $json_string = request_json($fontArray, $_SESSION["User"]);
-        $progress_list = get_progress($json_string);
+//        $json_string = request_json($fontArray, $_SESSION["User"]);
+//        $progress_list = get_progress($json_string);
 
-        foreach ($fontArray as $single_font) {
-            $single_font["progress"] = $progress_list[$single_font['name']];
+        foreach ($fontArray as $index => $single_font) {
+//            $fontArray[$index]["progress"] = $progress_list[$single_font['name']];
+            $fontArray[$index]["progress"] = .5;
         }
-
 
         echo json_encode(array_utf8_encode($fontArray));
     }
