@@ -32,6 +32,8 @@ try {
         foreach ($fontArray as $index => $single_font) {
 //            $fontArray[$index]["progress"] = $progress_list[$single_font['name']];
             $fontArray[$index]["progress"] = .5;
+            $finished = $single_font['finished'];
+            $fontArray[$index]['finished'] = $finished == 1 ? true : false;
         }
 
         echo json_encode(array_utf8_encode($fontArray));
